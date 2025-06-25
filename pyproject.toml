@@ -1,0 +1,25 @@
+[project]
+name = "uv-docker"
+version = "0.1.0"
+description = "Demonstration project that uses uv to manage dependencies in a Dockerized setup."
+authors = [
+    {name = "Rebecca Buchholz"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+      "fastapi[standard]==0.115.13"
+]
+license = "MIT"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Topic:: Software Development",
+    "Topic :: Software Development :: Libraries",
+    "Intended Audience :: Developers"
+]
+keywords = [
+    "Docker",
+    "uv"
+]
