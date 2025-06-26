@@ -11,12 +11,11 @@
 
 ### Demonstration project that uses uv to manage dependencies in a Dockerized setup.
 
-#### Why should you use uv?
-
-> - uv is an extremely fast Python package and project manager that is 10-100x faster than pip 
-> - Provides comprehensive project management with a universal lockfile
-> - Installs and manages Python versions <br>
-> — [uv](https://docs.astral.sh/uv/)
+> ### **Why use `uv`?**
+> - **Extremely Fast:** `uv` is a Python package and project manager that is _10-100x faster_ than `pip`. 
+> - **Universal Lockfile:** Provides comprehensive project management with a universal lockfile.
+> - **Comprehensive Tooling:** Installs and manages Python versions <br>
+> — (Source: [uv docs](https://docs.astral.sh/uv/))
 
 ---
 
@@ -83,28 +82,29 @@ After the ```uv-dev``` container is running the following endpoints are accessib
 
 | Endpoint                         | Method    | Purpose             | Expected Output           |
 |----------------------------------|-----------|---------------------|---------------------------|
-| http://127.0.0.1:8010            | ```GET``` | Swagger Docs        | HTML interactive docs     |
+| http://127.0.0.1:8010            | ```GET``` | Swagger docs        | HTML interactive docs     |
 | http://127.0.0.1:8010/glow-check | ```GET``` | Check status of app | ```{"blacklight":"ON"}``` |
 
 **Note**: The port for the ```uv-dev``` container application is assigned to ```8010```.
 
 #### Live Code Change Example
 - After making a change to the local code you can live view the new output in the application
-- Change the response value for the endpoint ```/glow-check``` in the local code ```src/main.py```
+- Change the response value in the local code file ```src/main.py``` for the endpoint ```/glow-check``` to `{"blacklight":"Glowing"}`
 - Execute a new curl request or if viewing in the browser refresh the page for http://127.0.0.1:8010/glow-check 
-- The response will have the newly changed value 
+- The response will have the newly changed value: `{"blacklight":"Glowing"}`
+- It may take a few seconds for the uvicorn server to restart after code changes
 
 
 ## Linting
 
-The project can be linted with [ruff](https://docs.astral.sh/ruff/) without having to install it.
+The project can be linted with [ruff](https://docs.astral.sh/ruff/) without having to install it in the container.
 
 Check for linting errors:
 ```bash
 docker compose run --rm uv-dev uvx ruff check
 ```
 
-Fix linting errors by adding the ```--fix``` option: 
+Fix linting errors by using the ```--fix``` option: 
 ```bash
 docker compose run --rm uv-dev uvx ruff check --fix
 ```
