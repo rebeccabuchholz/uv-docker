@@ -24,6 +24,11 @@ keywords = [
     "uv"
 ]
 
+[project.urls]
+documentation = "https://github.com/rebeccabuchholz/uv-docker/blob/main/README.md"
+repository = "https://github.com/rebeccabuchholz/uv-docker"
+changelog = "https://github.com/rebeccabuchholz/uv-docker/blob/main/CHANGELOG.md"
+
 [dependency-groups]
 dev = [
     "pytest>=8.4.1",
