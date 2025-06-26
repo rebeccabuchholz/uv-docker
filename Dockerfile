@@ -43,6 +43,10 @@ CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--reload"]
 
 FROM base as prod
 
+# Compile Python source files to bytecode to improve startup time
+#   (at the cost of increased installation time)
+ENV UV_COMPILE_BYTECODE=1
+
 RUN --mount=type=cache,target=/home/$USER/.cache/uv \
     uv sync --frozen --no-install-project --no-dev
 
