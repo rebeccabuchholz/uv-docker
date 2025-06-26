@@ -9,7 +9,7 @@
     </a>
 </div>
 
-### Demonstration project that uses uv to manage dependencies in a Dockerized setup.
+### Demonstration project that uses `uv` to manage dependencies in a Dockerized setup.
 
 > ### **Why use `uv`?**
 > - **Extremely Fast:** `uv` is a Python package and project manager that is _10-100x faster_ than `pip`. 
