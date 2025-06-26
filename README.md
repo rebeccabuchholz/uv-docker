@@ -97,7 +97,7 @@ After the ```uv-dev``` container is running the following endpoints are accessib
 
 ## Linting
 
-The project can be linted with [ruff](https://docs.astral.sh/ruff/) without having to install it in the container.
+The project can be linted using [ruff](https://docs.astral.sh/ruff/) without having to install it in a container.
 
 Check for linting errors:
 ```bash
