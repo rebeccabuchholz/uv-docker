@@ -23,12 +23,12 @@ COPY pyproject.toml uv.lock* ./
 FROM base as dev
 
 RUN --mount=type=cache,target=/home/$USER/.cache/uv \
-    uv sync --frozen --no-install-project
+    uv sync --locked --no-install-project --color auto
 
 COPY src /src
 
 RUN --mount=type=cache,target=/home/$USER/.cache/uv \
-    uv sync --frozen
+    uv sync --locked --color auto
 
 ENV PYTHONPATH=$APP_DIR
 
