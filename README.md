@@ -95,6 +95,30 @@ After the ```uv-dev``` container is running the following endpoints are accessib
 - It may take a few seconds for the uvicorn server to restart after code changes
 
 
+#### Adding or Updating a Dependency 
+
+Add a new dependency or update the version of a dependency in `pyproject.toml`.
+- Production dependencies example:
+  ```toml
+  dependencies = [
+      "fastapi[standard]==0.115.13"
+  ] 
+  ```
+- Development dependencies example:
+  ```toml
+  [dependency-groups]
+  dev = [
+    "pytest>=8.4.1",
+    "pytest-cov>=6.2.1"
+  ] 
+  ```
+
+**Note:** After adding/updating a dependency it is necessary to update the `uv.lock` file, execute:
+```bash
+docker compose run --rm uv-dev uv lock 
+```
+
+
 ## Linting
 
 The project can be linted using [ruff](https://docs.astral.sh/ruff/) without having to install it in a container.
