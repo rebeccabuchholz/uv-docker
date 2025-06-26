@@ -6,7 +6,7 @@ services:
       context: .
       target: dev
     volumes:
-      - .:/home/uv-user
+      - ./src:/home/uv-user/src
     ports:
       - 8010:8000
     healthcheck:
