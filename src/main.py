@@ -4,7 +4,10 @@ from fastapi.responses import RedirectResponse
 app = FastAPI(
     title="uv-docker",
     description="API for uv-docker",
-    license_info={"name": "MIT"}
+    license_info={
+        "name": "MIT",
+        "url": "https://raw.githubusercontent.com/rebeccabuchholz/uv-docker/refs/heads/main/LICENSE"
+    }
 )
 
 @app.get("/", include_in_schema=False)

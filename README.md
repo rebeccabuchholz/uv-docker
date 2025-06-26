@@ -22,28 +22,35 @@
 
 
 ## Table of Contents
-1. [Installation](#installation)
-    - [Initial Setup](#initial-setup)
-    - [Production Mode](#production-mode)
-    - [Development Mode](#development-mode)
+1. [Initial Setup](#initial-setup)
+2. [Usage](#usage)
+   - [Production Mode](#production-mode)
+   - [Development Mode](#development-mode)
+3. [Linting](#linting)
+4. [Tests](#tests)
+5. [License](#license)
+6. [Author](#Author)
 
 
-## Installation
+## Initial Setup
 
-`uv-docker` can be built and run in the following modes:
-- Production Mode
-- Development Mode
-- Both Production and Development Modes simultaneously  
-
-### Initial Setup
-
-Docker must be installed and running. 
+Docker must be installed and running on your machine. 
 
 Clone the project from GitHub: 
 
 ```bash
 git clone https://github.com/rebeccabuchholz/uv-docker.git
 ```
+
+
+## Usage
+
+The project application has an API powered by [FastAPI](https://fastapi.tiangolo.com).
+
+`uv-docker` can be built and run in the following modes:
+- Production Mode
+- Development Mode
+- Both Production and Development Modes simultaneously  
 
 ### Production Mode
 
@@ -54,11 +61,67 @@ Open a terminal and navigate to the project directory, then execute:
 docker compose up --build uv-prod
 ```
 
+After the ```uv-prod``` container is running the following endpoints are accessible.
+
+| Endpoint                         | Method    | Purpose             | Expected Output           |
+|----------------------------------|-----------|---------------------|---------------------------|
+| http://127.0.0.1:8000            | ```GET``` | Swagger Docs        | HTML interactive docs     |
+| http://127.0.0.1:8000/glow-check | ```GET``` | Check status of app | ```{"blacklight":"ON"}``` |
+
 ### Development Mode
 
-Build and run the production in development mode to view live changes made in the source code and run the test suite. 
+Build and run the project in development mode to view live changes made in the source code.
+
+Development mode can also be used to run the test suite. 
 
 Open a terminal and navigate to the project directory, then execute:
 ```bash
 docker compose up --build uv-dev
 ```
+
+After the ```uv-dev``` container is running the following endpoints are accessible.
+
+| Endpoint                         | Method    | Purpose             | Expected Output           |
+|----------------------------------|-----------|---------------------|---------------------------|
+| http://127.0.0.1:8010            | ```GET``` | Swagger Docs        | HTML interactive docs     |
+| http://127.0.0.1:8010/glow-check | ```GET``` | Check status of app | ```{"blacklight":"ON"}``` |
+
+**Note**: The port for the ```uv-dev``` container application is assigned to ```8010```.
+
+#### Live Code Change Example
+- After making a change to the local code you can live view the new output in the application
+- Change the response value for the endpoint ```/glow-check``` in the local code ```src/main.py```
+- Execute a new curl request or if viewing in the browser refresh the page for http://127.0.0.1:8010/glow-check 
+- The response will have the newly changed value 
+
+
+## Linting
+
+The project can be linted with [ruff](https://docs.astral.sh/ruff/) without having to install it.
+
+Check for linting errors:
+```bash
+docker compose run --rm uv-dev uvx ruff check
+```
+
+Fix linting errors by adding the ```--fix``` option: 
+```bash
+docker compose run --rm uv-dev uvx ruff check --fix
+```
+
+
+## Tests
+
+The test suite can only be executed if the ```uv-dev``` container is running.  
+```bash
+docker exec -it uv-dev uv run pytest --cov=src --cov-report=term -vv
+```
+
+## License
+
+[MIT](https://raw.githubusercontent.com/rebeccabuchholz/uv-docker/refs/heads/main/LICENSE)
+
+
+## Author
+
+<a href="http://www.linkedin.com/in/rebeccabuchholz" target="_blank">Rebecca Buchholz</a>
