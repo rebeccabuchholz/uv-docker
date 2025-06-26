@@ -23,3 +23,9 @@ keywords = [
     "Docker",
     "uv"
 ]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.1",
+    "pytest-cov>=6.2.1"
+]
