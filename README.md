@@ -47,9 +47,9 @@ git clone https://github.com/rebeccabuchholz/uv-docker.git
 The project application has an API powered by [FastAPI](https://fastapi.tiangolo.com).
 
 `uv-docker` can be built and run in the following modes:
-- Production Mode
-- Development Mode
-- Both Production and Development Modes simultaneously  
+- Production 
+- Development 
+- Production and Development simultaneously  
 
 ### Production Mode
 
