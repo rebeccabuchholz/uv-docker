@@ -1,15 +1,29 @@
 services:
 
-  uv-api:
-    container_name: uv-api
+  uv-dev:
+    container_name: uv-dev
     build:
       context: .
+      target: dev
     volumes:
       - .:/home/uv-user
     ports:
       - 8010:8000
     healthcheck:
-      test: ["CMD", "curl", "-f", "localhost:8000/glow-check"]
+      test: ["CMD", "curl", "-f", "localhost:8010/glow-check"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+
+  uv-prod:
+    container_name: uv-prod
+    build:
+      context: .
+      target: prod
+    ports:
+      - 8000:8000
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "localhost:8000/glow-check" ]
       interval: 30s
       timeout: 5s
       retries: 5
