@@ -1,6 +1,6 @@
 [project]
 name = "uv-docker"
-version = "0.1.0"
+version = "1.0.0"
 description = "Demonstration project that uses uv to manage dependencies in a Dockerized setup."
 authors = [
     {name = "Rebecca Buchholz"}

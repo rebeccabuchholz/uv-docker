@@ -14,7 +14,7 @@
 > ### **Why use `uv`?**
 > - **Extremely Fast:** `uv` is a Python package and project manager that is _10-100x faster_ than `pip`. 
 > - **Universal Lockfile:** Provides comprehensive project management with a universal lockfile.
-> - **Comprehensive Tooling:** Installs and manages Python versions <br>
+> - **Comprehensive Tooling:** Runs and installs tools published as Python packages. <br>
 > — (Source: [uv docs](https://docs.astral.sh/uv/))
 
 ---
