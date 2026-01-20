@@ -1,4 +1,4 @@
-FROM python:3.12-slim as base
+FROM python:3.13-slim AS base
 
 ENV USER=uv-user \
     PYTHONDONTWRITEBYTECODE=1 \
@@ -20,7 +20,7 @@ COPY pyproject.toml uv.lock* ./
 
 # ======================== Dev stage =================================
 
-FROM base as dev
+FROM base AS dev
 
 RUN --mount=type=cache,target=/home/$USER/.cache/uv \
     uv sync --locked --no-install-project --color auto
@@ -41,7 +41,7 @@ CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--reload"]
 
 # ==================== Prod stage ===================================
 
-FROM base as prod
+FROM base AS prod
 
 # Compile Python source files to bytecode to improve startup time
 #   (at the cost of increased installation time)

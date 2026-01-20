@@ -9,11 +9,6 @@ services:
       - ./src:/home/uv-user/src
     ports:
       - 8010:8000
-    healthcheck:
-      test: ["CMD", "curl", "-f", "localhost:8010/glow-check"]
-      interval: 30s
-      timeout: 5s
-      retries: 5
 
   uv-prod:
     container_name: uv-prod
@@ -22,8 +17,3 @@ services:
       target: prod
     ports:
       - 8000:8000
-    healthcheck:
-      test: [ "CMD", "curl", "-f", "localhost:8000/glow-check" ]
-      interval: 30s
-      timeout: 5s
-      retries: 5
