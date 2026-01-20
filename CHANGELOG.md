@@ -4,7 +4,7 @@
 ### Chore
 - Update Python version to 3.13 
 ### Docs
-- Update usage insructions
+- Update usage instructions
 
 ## 1.0.0 (2025-06-27)
 ### First release
