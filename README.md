@@ -31,7 +31,7 @@
 6. [Author](#Author)
 
 
-## Initial Setup
+## 1. Initial Setup
 
 Docker must be installed and running on your machine. 
 
@@ -42,7 +42,7 @@ git clone https://github.com/rebeccabuchholz/uv-docker.git
 ```
 
 
-## Usage
+## 2. Usage
 
 The project application has an API powered by [FastAPI](https://fastapi.tiangolo.com).
 
@@ -87,6 +87,11 @@ After the ```uv-dev``` container is running the following endpoints are accessib
 
 **Note**: The port for the ```uv-dev``` container application is assigned to ```8010```.
 
+To restart the stopped ```uv-dev``` container without rebuilding the image execute:
+```bash
+docker start uv-dev
+```
+
 #### Live Code Change Example
 - After making a change to the local code you can live view the new output in the application
 - Change the response value in the local code file ```src/main.py``` for the endpoint ```/glow-check``` to `{"blacklight":"Glowing"}`
@@ -119,7 +124,7 @@ docker compose run --rm uv-dev uv lock
 ```
 
 
-## Linting
+## 3. Linting
 
 The project can be linted using [ruff](https://docs.astral.sh/ruff/) without having to install it in a container.
 
@@ -134,18 +139,18 @@ docker compose run --rm uv-dev uvx ruff check --fix
 ```
 
 
-## Tests
+## 4. Tests
 
 The test suite can only be executed if the ```uv-dev``` container is running.  
 ```bash
 docker exec -it uv-dev uv run pytest --cov=src --cov-report=term -vv
 ```
 
-## License
+## 5. License
 
 [MIT](https://raw.githubusercontent.com/rebeccabuchholz/uv-docker/refs/heads/main/LICENSE)
 
 
-## Author
+## 6. Author
 
 <a href="http://www.linkedin.com/in/rebeccabuchholz" target="_blank">Rebecca Buchholz</a>
